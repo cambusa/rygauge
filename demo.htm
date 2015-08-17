@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Demo ryGauge Javascript</title>
+    <script type='text/javascript' src='jquery.js' ></script>
+    <script type='text/javascript' src='rygauge.js' ></script>
+    
+    <style>
+        body{font-family:sans-serif;font-size:80%;}
+        h3{font-family:sans-serif;}
+        .list{white-space: nowrap;}
+        .solution{color:red;}
+    </style>
+</head>
+
+<script language="JavaScript">
+
+var z;
+
+function init(){
+    // LET'S LOAD A RANDOM ARRAY
+    var listcount=300;
+    var values=[];
+    var i=0;
+    var value=0;
+    var list=[];
+    while(i<listcount){
+        if(Math.random()<0.5)
+            value=Math.floor(1000000*Math.random())-500000;
+        else
+            value=Math.floor(100000*Math.random())-50000;
+        if(values.indexOf(value)==-1){
+            values[i]={value:value, ref:i};  // FIRST METHOD
+            //values[i]=value;  // SECOND METHOD
+            i+=1;
+        }
+        list.push("<span class='list'>"+value+"</span>");
+    }
+
+    $("#list").html(list.join(", "));
+    
+    z=new rygauge({
+        haystack:values,
+        gauge:999,
+        progress:function(mess){
+            $("#progress").html(mess);
+        },
+        issue:function(needle){
+            if(needle){
+                var sol=[];
+                var red="|"+needle.join("|")+"|";
+                for(var i=0; i<listcount; i++){
+                    if(red.indexOf("|"+values[i].ref+"|")>=0)
+                        sol.push("<span class='list solution'>"+values[i].value+"</span>");
+                    else
+                        sol.push("<span class='list'>"+values[i].value+"</span>");
+                }
+                $("#list").html(sol.join(", "));
+            }
+        }
+    });
+}
+
+function search(){
+    $("#progress").html("");
+    z.search();
+}
+
+</script>
+
+<body onload="init()">
+
+<h3>Demo Gauge Algorithm</h3>
+
+<div id="search" style="position:absolute;left:20px;top:50px;cursor:pointer;border:1px solid gray;padding:2px;background:silver;" onclick="search()">Looking for 999</div>
+<div id="progress" style="position:absolute;left:20px;top:100px;"></div>
+<div id="list" style="position:absolute;left:20px;top:150px;width:400px;"></div>
+
+</body>
+</html>
