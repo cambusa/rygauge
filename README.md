@@ -1,7 +1,7 @@
 ryGauge v1.70
 =============
 
-### © 2015 Rodolfo Calzetti
+### Â© 2015 Rodolfo Calzetti
 
 __Remedy for the "subset sum problem" complexity__
 
@@ -9,21 +9,20 @@ Cambusa/Corsaro component for standalone uses.
 
 ![ryGauge](https://raw.githubusercontent.com/cambusa/rygauge/master/rygauge.png)
 
-<code>
--  1595
--  4355
-+  1052
--  6046
--  2070
--  5398
--  4331
-+   360
-+  6223
-+  1147
-+ 16012
--------
-+   999
-</code>
+  -1595<br/>
+  -4355<br/>
+  +1052<br/>
+  -6046<br/>
+  -2070<br/>
+  -5398<br/>
+  -4331<br/>
+   +360<br/>
+  +6223<br/>
+  +1147<br/>
+ +16012<br/>
+\-\-\-\-\-\-\-\-\-\-<br/>
+   +999<br/>
+
 
 Have you any questions? You can email me at postmaster@rudyz.net
 
