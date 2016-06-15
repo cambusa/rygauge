@@ -1,5 +1,5 @@
-ryGauge v1.70
-=============
+ryGauge v2.0
+============
 
 ### © 2015 Rodolfo Calzetti
 
