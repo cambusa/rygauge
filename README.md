@@ -1,4 +1,4 @@
-ryGauge v2.0
+ryGauge v2.1
 ============
 
 ### © 2021 Rodolfo Calzetti
