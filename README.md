@@ -1,7 +1,7 @@
 ryGauge v2.0
 ============
 
-### © 2015 Rodolfo Calzetti
+### © 2021 Rodolfo Calzetti
 
 __Remedy for the "subset sum problem" complexity__
 
