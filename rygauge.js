@@ -349,7 +349,7 @@ function rygauge(options, missing){
                         for($i=1; $i<=$Status.MaxValore; $i++){
                              if($Valori[$i].Selezionato){
                                  $TotaleSelez = $TotaleSelez + $Valori[$i].Valore;
-                                 $ContaSelez+=1;
+                                 $ContaSelez++;
                              }
                         }
                     }
@@ -654,7 +654,7 @@ function rygauge(options, missing){
                     $Scostamento=Math.abs($ValSel-$Valori[$i].Valore);
                     if(($Scostamento<=$Status.Tolerance)&&($i!=$UltimoTolto)&&($ContaSelez<$Status.MaxSize+5)){
                         $Valori[$i].Selezionato = true;
-                        $ContaSelez+=1;
+                        $ContaSelez++;
                         $UltimoAggiunto = $i;
                         $Esito = true;
                         break;
@@ -677,9 +677,10 @@ function rygauge(options, missing){
                 else{
                     $Scostamento = Math.abs($ValSel + $Valori[$i].Valore);
                     if(($Scostamento <= $Status.Tolerance) && ($i != $UltimoAggiunto) && ($ContaSelez > $Status.MinSize - 5)){
-                    
-                        $Valori[$i].Selezionato = false;
-                        $ContaSelez+=1;
+                        if($Valori[$i].Selezionato){
+                            $ContaSelez--;
+                            $Valori[$i].Selezionato = false;
+                        }
                         $UltimoTolto = $i;
                         $Esito = true;
                         break;
@@ -744,7 +745,7 @@ function rygauge(options, missing){
                 }	
                 if($Valori[$i].Selezionato){
                     $TotaleSelez = $TotaleSelez + $Valori[$i].Valore;
-                    $ContaSelez+=1;
+                    $ContaSelez++;
                 }
             }
             /***************************
